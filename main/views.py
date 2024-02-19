@@ -135,3 +135,14 @@ class AvailabilityView(CustomModelViewSet):
     filterset_class  = AvailabilityFilter
     ordering_fields = '__all__' 
     # permission_classes = (DjangoModelPermissionsOrAnonReadOnly,)  
+
+
+class ChatBotAPIView(APIView):
+    def post(self, request):
+        data = request.data
+        question = data.get('question')      
+
+        answer = chat.get_response(question)
+               
+        return JsonResponse(status=201, data={'content': answer.message})
+
