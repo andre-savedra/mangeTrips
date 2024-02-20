@@ -63,3 +63,5 @@ class adminAvailability(admin.ModelAdmin):
 
 admin.site.register(Availability, adminAvailability)
 
+
+
